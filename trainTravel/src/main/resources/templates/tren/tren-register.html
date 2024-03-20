@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/auth/index-auth}">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+	<body>
+		<!--  Start code -->
+		<div layout:fragment="containerFragment">
+	          <form th:action="@{'/'+${path}+'/register'}" method="POST"
+	              th:object="${Object}">
+                 <div  class="form-group row">                 <input th:field ="*{id}" type="hidden">
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="codigo"
+                                    th:for="codigo" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{codigo}" 
+                                    type="text" 
+                                    id="codigo" 
+                                    name="codigo" 
+                                    th:placeholder="codigo" 
+                                                                                                        required="required">
+                            </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="modelo"
+                                    th:for="modelo" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{modelo}" 
+                                    type="text" 
+                                    id="modelo" 
+                                    name="modelo" 
+                                    th:placeholder="modelo" 
+                                                                                                        required="required">
+                            </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="capacidad"
+                                    th:for="capacidad" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{capacidad}" 
+                                    type="number" 
+                                    id="capacidad" 
+                                    name="capacidad" 
+                                    th:placeholder="capacidad" 
+                                                                                                        required>
+                            </div>
+                         <div class="text-center col-form-label">
+                             <button type="submit" class="btn btn-primary" th:text="Guardar"></button>
+                             <a th:href="@{'/'+ ${btnBack}}" th:type="button" th:text="Retroceder"
+                                class="btn btn-primary"></a>
+                         </div>
+                    </div >
+	          </form>
+  		</div>
+   		<!--  End code -->
+  	</body>
+</html>

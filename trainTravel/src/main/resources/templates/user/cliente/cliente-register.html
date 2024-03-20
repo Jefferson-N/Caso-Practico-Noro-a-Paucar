@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{auth/index-auth}">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+	<body>
+		<!--  Start code -->
+		<div layout:fragment="containerFragment">
+	          <form th:action="@{'/'+${path}+'/register'}" method="POST"
+	              th:object="${Object}">
+                 <div  class="form-group row">
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="nombre"
+                                    th:for="nombre" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{nombre}" 
+                                    type="text" 
+                                    id="nombre" 
+                                    name="nombre" 
+                                    th:placeholder="nombre" 
+                                                                                                        required="required">
+                            </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="apellido"
+                                    th:for="apellido" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{apellido}" 
+                                    type="text" 
+                                    id="apellido" 
+                                    name="apellido" 
+                                    th:placeholder="apellido" 
+                                                                                                        required="required">
+                            </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="telefono"
+                                    th:for="telefono" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{telefono}" 
+                                    type="text" 
+                                    id="telefono" 
+                                    name="telefono" 
+                                    th:placeholder="telefono" 
+                                                                                                        required="required">
+                            </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="email"
+                                    th:for="email" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{email}" 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    th:placeholder="email" 
+                                                                                                        required>
+                            </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="estado"
+                                    th:for="estado" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <select
+                                    class="form-select"
+                                    th:field="*{estado}" 
+                                >
+                                    <th:block th:each="list:${[estadoList]}">
+                                        <option th:value="${list.id}"
+                                            th:text="${list.id}">
+                                        </option>
+                                    </th:block>
+                                </select>
+                            </div>
+                         <div class="text-center col-form-label">
+                             <button type="submit" class="btn btn-primary" th:text="Guardar"></button>
+                             <a th:href="@{'/'+ ${btnBack}}" th:type="button" th:text="Retroceder"
+                                class="btn btn-primary"></a>
+                         </div>
+                    </div >
+	          </form>
+  		</div>
+   		<!--  End code -->
+  	</body>
+</html>

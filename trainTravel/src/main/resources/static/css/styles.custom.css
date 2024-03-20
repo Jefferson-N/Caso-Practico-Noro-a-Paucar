@@ -1,0 +1,17 @@
+body {
+    position:inherit;
+    /* padding-left: 30%;
+    padding-top: 5%; */
+    padding: 5% 0% 0% 32%;
+    margin: 1%;
+    opacity: 0.80;
+    background-color: aliceblue;
+    background: rgb(10, 1, 85);
+}
+div{
+    margin: 0.001%;
+    text-align: justify;    
+    align-self: center;
+    padding-top: 0.51%;
+
+}

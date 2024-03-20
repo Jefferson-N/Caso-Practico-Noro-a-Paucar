@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{index}">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+	<body>
+		<!--  Start code -->
+		<div layout:fragment="containerFragment">
+	        <table id="example" class="table table-hover " style="contain-intrinsic-size: 50%;" >
+	            <thead>
+                     <tr>
+
+                        <th scope="col" th:text="Nombre">
+                        </th>
+
+                        <th scope="col" th:text="Apellido">
+                        </th>
+                        
+                        <th scope="col" th:text="Cedula">
+                        </th>
+
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr  th:each="obj : ${listObject}">
+
+                        <td th:text="${obj.fkCliente.nombre}">
+                        </td>
+
+                        <td th:text="${obj.fkCliente.apellido}">
+                        </td>
+
+                        <td th:text="${obj.fkCliente.cedula}">
+                        </td>
+
+                    </tr>
+   
+   		 	    </tbody>
+            </table>
+
+  		</div>
+   		<!--  End code -->
+  	</body>
+</html>

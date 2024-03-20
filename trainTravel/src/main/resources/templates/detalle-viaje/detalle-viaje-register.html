@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/auth/index-auth}">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+	<body>
+		<!--  Start code -->
+		<div layout:fragment="containerFragment">
+	          <form th:action="@{'/'+${path}+'/register'}" method="POST"
+	              th:object="${Object}">
+                 <div  class="form-group row">                 <input th:field ="*{id}" type="hidden">
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="ruta"
+                                    th:for="ruta" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{ruta}" 
+                                    type="text" 
+                                    id="ruta" 
+                                    name="ruta" 
+                                    th:placeholder="ruta" 
+                                                                                                        required="required">
+                            </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="vtPosicion"
+                                    th:for="vtPosicion" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{vtPosicion}" 
+                                    type="text" 
+                                    id="vtPosicion" 
+                                    name="vtPosicion" 
+                                    th:placeholder="vtPosicion" 
+                                                                                                        required="required">
+                            </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="fkTren"
+                                    th:for="fkTren" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <select
+                                    class="form-select"
+                                    th:field="*{fkTren}" 
+                                >
+                                    <th:block th:each="list:${fkTrenList}">
+                                        <option th:value="${list.id}"
+                                            th:text="${list.codigo}">
+                                        </option>
+                                    </th:block>
+                                </select>
+                            </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="fkReserva"
+                                    th:for="fkReserva" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <select
+                                    class="form-select"
+                                    th:field="*{fkReserva}" 
+                                >
+                                    <th:block th:each="list:${fkReservaList}">
+                                        <option th:value="${list.id}"
+                                            th:text="${list.nombre}">
+                                        </option>
+                                    </th:block>
+                                </select>
+                            </div>
+                         <div class="text-center col-form-label">
+                             <button type="submit" class="btn btn-primary" th:text="Guardar"></button>
+                             <a th:href="@{'/'+ ${btnBack}}" th:type="button" th:text="Retroceder"
+                                class="btn btn-primary"></a>
+                         </div>
+                    </div >
+	          </form>
+  		</div>
+   		<!--  End code -->
+  	</body>
+</html>

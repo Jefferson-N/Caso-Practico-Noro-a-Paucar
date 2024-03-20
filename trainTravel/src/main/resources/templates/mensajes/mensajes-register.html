@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/auth/index-auth}">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+	<body>
+		<!--  Start code -->
+		<div layout:fragment="containerFragment">
+	          <form th:action="@{'/'+${path}+'/register'}" method="POST"
+	              th:object="${Object}">
+                 <div  class="form-group row">                 <input th:field ="*{id}" type="hidden">
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="'tipo mensaje'"
+                                    th:for="tipo" >
+                                </label>
+
+                                <div class="col-sm-8 ">
+                                    <select
+                                        class="form-select"
+                                        th:field="*{tipo}" 
+                                        required
+                                    >
+                                    <option th:value="Operaciones"
+                                    th:text="Operaciones">
+                                </option>
+                                <option th:value="'Seguridad y Servicio al cliente'"
+                                                th:text="'Seguridad y Servicio al cliente'">
+                                            </option>
+                                    </select>
+                                </div>
+
+                                <label 
+                                    class="col-form-label col-sm-4"
+                                    th:text ="Descripcion"
+                                    th:for="nombre" >
+                                </label>
+
+                            <div class="col-sm-8 ">
+                                <input
+                                    class="form-control"
+                                    th:field="*{nombre}" 
+                                    type="text" 
+                                    id="nombre" 
+                                    name="nombre" 
+                                    th:placeholder="Descripcion" 
+                                                                                                        required="required">
+                            </div>
+
+                         <div class="text-center col-form-label">
+                             <button type="submit" class="btn btn-primary" th:text="Guardar"></button>
+                             <a th:href="@{'/'+ ${btnBack}}" th:type="button" th:text="Retroceder"
+                                class="btn btn-primary"></a>
+                         </div>
+                    </div >
+	          </form>
+  		</div>
+   		<!--  End code -->
+  	</body>
+</html>

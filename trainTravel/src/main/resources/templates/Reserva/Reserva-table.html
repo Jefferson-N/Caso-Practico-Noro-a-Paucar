@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{/index}">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+	<body>
+		<!--  Start code -->
+		<div layout:fragment="containerFragment">
+	        <table id="example" class="table table-bordered table-striped" style="contain-intrinsic-size: 50%;" >
+	            <thead>
+
+                     <tr>
+
+                        <th scope="col" th:text="nombre">
+                        </th>
+
+                        <th scope="col" th:text="direccion">
+                        </th>
+
+                        <th scope="col" th:text="Fecha">
+                        </th>
+
+                        <th scope="col" th:text="Cliente">
+                        </th>
+
+                        <th scope="col" th:text="Boleto">
+                        </th>
+
+                        <th scope="col"></th>
+
+                        <th scope="col"></th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr  th:each="obj : ${listObject}">
+
+                        <td th:text="${obj.nombre}">
+                        </td>
+
+                        <td th:text="${obj.direccion}">
+                        </td>
+
+                        <td type="date" th:text="${obj.fecha}">
+                        </td>
+
+                        <td th:text="${obj.fkCliente.cedula +' '+ obj.fkCliente.nombre}">
+                        </td>
+
+                        <td th:text="${obj.fkBoleto.codigo}">
+                        </td>
+
+                        <td><a th:href="@{'/' + ${path} + '/delete/'+ ${obj.id}}"
+                               th:onclick="return confirm('Esta seguro de eliminar el registro')"
+                        	    class="btn btn-danger"> <i class="bi bi-trash-fill"></i>
+                        </a></td>
+
+                    </tr>
+   
+   		 	    </tbody>
+            </table>
+
+  		</div>
+   		<!--  End code -->
+  	</body>
+</html>

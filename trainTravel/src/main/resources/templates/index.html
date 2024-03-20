@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="fixed" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Universidad Israel</title>
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" th:href="@{/admin/plugins/fontawesome-free/css/all.min.css}">
+	<!-- Theme style -->
+	<link rel="stylesheet" th:href="@{/admin/dist/css/adminlte.min.css}">
+
+	<!-- jQuery -->
+	<script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
+	<!-- DataTables -->
+	<link rel="stylesheet" th:href="@{/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css}">
+	<link rel="stylesheet" th:href="@{/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css}">
+	<link rel="stylesheet" th:href="@{/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css}">
+	<!-- fullCalendar -->
+	<link rel="stylesheet" th:href="@{/admin/plugins/fullcalendar/main.css}">
+	<link th:href="@{/css/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/admin/plugins/fullcalendar/main.css}">
+	<!-- Theme style -->
+	<link rel="stylesheet" th:href="@{/admin/dist/css/adminlte.min.css}">
+</head>
+
+<!-- <body> -->
+
+<body class="hold-transition sidebar-mini layout-fixed">
+	<div class="wrapper">
+
+
+		<div class="content-wrapper">
+
+			<!-- ======= Sidebar ======= -->
+			<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+				<a href="#" class="brand-link">
+					<span class="brand-text font-weight-light" th:text="${appName}"></span>
+					<i class="bi bi-list toggle-sidebar-btn"></i>
+				</a>
+
+				<nav class="mt-2">
+
+					<ul class="nav nav-pills nav-sidebar flex-column">
+						<li class="nav-item menu-open" th:each="map:${menuOptions.entrySet}">
+
+							<a class="nav-link active" th:href="@{${map.value}}" th:text="${map.key}">
+								<i class="fas fa-search fa-fw"></i>
+							</a>
+						</li>
+					</ul>
+
+					<ul class="nav nav-pills nav-sidebar flex-column">
+
+						<li><a class="nav-link active" th:onclick="return confirm('Seguro desea cerrar sesion')"
+								th:href="@{/logout}">
+								<i class="bi bi-file-earmark-plus"> Cerrar Sesion</i>
+							</a></li>
+
+					</ul>
+				</nav>
+
+			</aside>
+			<!-- End Sidebar-->
+
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="card">
+								<div class="card-body">
+
+									<div th:class="'alert alert-'+${class} +' alert-dismissible fade show msgAlert' + ' col-lg-6'"
+										th:if="${mensaje != null}" th:text="${mensaje}" th:role="alert">
+									</div>
+
+									<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+									<script type="text/javascript">
+										$(document).ready(function () {
+											setTimeout(function () {
+												$(".msgAlert").fadeOut(1500);
+											}, 3500);
+										});
+									</script>
+
+
+									<!-- start codigo -->
+
+									<div layout:fragment="containerFragment" class="container-fluid"></div>
+
+									<!-- end codigo -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End #main -->
+				</div>
+			</div>
+
+			<footer class="bg-dark text-center text-white fixed-botton">
+
+
+				<div class="container">
+					<p class="m-0 text-center text-white">Copyright &copy; Spring
+						Universidad Israel</p>
+				</div>
+
+				<!-- REQUIRED SCRIPTS -->
+
+				<!-- Bootstrap 4 -->
+				<script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+				<!-- AdminLTE App -->
+				<script th:src="@{/admin/dist/js/adminlte.min.js}"></script>
+				<!-- fullCalendar 2.2.5 -->
+				<script th:src="@{/admin/plugins/moment/moment.min.js}"></script>
+				<script th:src="@{/admin/plugins/fullcalendar/main.js}"></script>
+
+
+
+				<!-- DataTables  & Plugins -->
+				<script th:src="@{/admin/plugins/datatables/jquery.dataTables.min.js}"></script>
+				<script th:src="@{/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js}"></script>
+				<script th:src="@{/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js}"></script>
+				<script th:src="@{/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js}"></script>
+				<script th:src="@{/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js}"></script>
+				<script th:src="@{/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js}"></script>
+				<script th:src="@{/admin/plugins/jszip/jszip.min.js}"></script>
+				<script th:src="@{/admin/plugins/pdfmake/pdfmake.min.js}"></script>
+				<script th:src="@{/admin/plugins/pdfmake/vfs_fonts.js}"></script>
+				<script th:src="@{/admin/plugins/datatables-buttons/js/buttons.html5.min.js}"></script>
+				<script th:src="@{/admin/plugins/datatables-buttons/js/buttons.print.min.js}"></script>
+				<script th:src="@{/admin/plugins/datatables-buttons/js/buttons.colVis.min.js}"></script>
+				<script type="text/javascript" th:src="@{/js/jquery-3.7.1.js}"></script>
+				<script th:src="@{/admin/plugins/fullcalendar/main.js}"> </script>
+				<script th:src="@{/js/custom.js}"></script>
+			</footer>
+		</div>
+	</div>
+</body>
+
+</html>

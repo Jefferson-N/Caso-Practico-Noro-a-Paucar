@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/styles.custom.css}" rel="stylesheet">
+    <!-- <title th:text="${tituloPagina}"></title> -->
+</head>
+
+<body>
+
+    <!--  Start code -->
+    <div th:if="${param.error}" 
+         th:class="'alert alert-'+ 'danger ' +' alert-dismissible fade show msgAlert2'"
+         style=" width: 50%;">
+        <p style="color: red;">Credenciales inválidas, por favor intente de nuevo.</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setTimeout(function () {
+                $(".msgAlert2").fadeOut(1500);
+            }, 1000);
+        });
+    </script>
+
+    <div class="card " style="width: 50%;">
+        <div class="card-body">
+            <!-- <h2 class="card-title">Iniciar Sesión</h2> -->
+
+            <div layout:fragment="containerFragment" class="container-fluid"></div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
